@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; img-src 'self'; frame-src 'self';">
+    <link rel="stylesheet" href="/css/home.css">
+    <title>NAVBAR WITH LIGHTS</title>
+</head>
+<body>
+    <ul>
+        <li><a href="">HOME</a></li>
+        <li>
+            <a href="">ACTIVITIES ▼</a>
+            <ul class="dropdown">
+                <li><a href="/html/lightbulb.html" target="frame1" id="link-lights">LIGHTS</a></li>
+                <li><a href="/html/traffic.html" target="frame1" id="link-traffic">TRAFFIC LIGHTS</a></li>
+            </ul>
+        </li>
+        <li><a href="">ARTICLES</a></li>
+        <li><a href="">INSPIRATION</a></li>
+    </ul>
+    <iframe id="iframe" src="/html/lightbulb.html" name = "frame1"></iframe>
+
+    <script src="/js/home.js"></script>
+</body>
+</html>

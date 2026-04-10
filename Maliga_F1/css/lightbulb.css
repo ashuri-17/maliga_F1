@@ -1,0 +1,29 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body {
+    position: relative;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    top: 200px;
+    z-index: -2;
+}
+#light_on {
+    position: absolute;
+    top: 340px;
+    left: 480px;
+}
+#light_off {
+    position: absolute;
+    top: 340px;
+    left: 380px;
+}
+#img_show {
+    position: relative;
+    left: 350px;
+    display: block;
+    top: 60px;
+    height: 270px;
+}
