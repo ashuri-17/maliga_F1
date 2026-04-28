@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">King of the Court</string>
+    <string name="title_activity_main">King of the Court</string>
+    <string name="package_name">com.kingofthecourt.settertraining</string>
+    <string name="custom_url_scheme">com.kingofthecourt.settertraining</string>
+</resources>

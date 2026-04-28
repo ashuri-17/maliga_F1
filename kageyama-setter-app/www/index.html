@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#0a0a1a">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>King of the Court - Setter Training</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" href="icons/icon-192.png">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+    <!-- Splash Screen -->
+    <div id="splash-screen" class="splash-screen">
+        <div class="splash-content">
+            <div class="crown-icon">👑</div>
+            <h1 class="splash-title">KING OF<br>THE COURT</h1>
+            <p class="splash-subtitle">Setter Training Program</p>
+            <div class="splash-tagline">"The one who stays on the court the longest is the strongest"</div>
+            <div class="loading-bar">
+                <div class="loading-fill"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main App Container -->
+    <div id="app" class="app hidden">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-left">
+                <div class="user-level">
+                    <span class="level-badge" id="level-badge">LV.1</span>
+                    <div class="xp-bar-mini">
+                        <div class="xp-fill-mini" id="xp-fill-mini"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="header-center">
+                <h1 class="app-title">KING OF THE COURT</h1>
+            </div>
+            <div class="header-right">
+                <div class="streak-counter" id="streak-counter">
+                    <span class="streak-flame">🔥</span>
+                    <span class="streak-number" id="streak-number">0</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Page Container -->
+        <main class="page-container" id="page-container">
+
+            <!-- HOME PAGE -->
+            <section id="page-home" class="page active">
+                <div class="home-hero">
+                    <div class="rank-display">
+                        <div class="rank-icon" id="rank-icon">🏐</div>
+                        <h2 class="rank-title" id="rank-title">Beginner Setter</h2>
+                        <p class="rank-quote" id="rank-quote">"There's no guarantee that the weapon you have now will always be your strongest."</p>
+                    </div>
+                    <div class="daily-progress-ring">
+                        <svg viewBox="0 0 120 120" class="progress-ring">
+                            <circle cx="60" cy="60" r="54" class="progress-ring-bg"/>
+                            <circle cx="60" cy="60" r="54" class="progress-ring-fill" id="daily-progress-ring"/>
+                        </svg>
+                        <div class="progress-ring-text">
+                            <span class="progress-percent" id="daily-percent">0%</span>
+                            <span class="progress-label">Today</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="home-stats-row">
+                    <div class="stat-card">
+                        <div class="stat-value" id="stat-total-drills">0</div>
+                        <div class="stat-label">Drills Done</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="stat-total-xp">0</div>
+                        <div class="stat-label">Total XP</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="stat-best-streak">0</div>
+                        <div class="stat-label">Best Streak</div>
+                    </div>
+                </div>
+
+                <div class="section-header">
+                    <h3>Today's Training</h3>
+                    <span class="badge" id="daily-task-count">0/0</span>
+                </div>
+                <div class="daily-tasks-list" id="daily-tasks-list">
+                    <!-- Populated by JS -->
+                </div>
+
+                <div class="section-header" style="margin-top:20px">
+                    <h3>Quick Start</h3>
+                </div>
+                <div class="quick-start-grid">
+                    <button class="quick-btn" onclick="app.navigateTo('drills')">
+                        <span class="quick-icon">🎯</span>
+                        <span>All Drills</span>
+                    </button>
+                    <button class="quick-btn" onclick="app.navigateTo('training')">
+                        <span class="quick-icon">📋</span>
+                        <span>Training Plan</span>
+                    </button>
+                    <button class="quick-btn" onclick="app.navigateTo('stats')">
+                        <span class="quick-icon">📊</span>
+                        <span>My Stats</span>
+                    </button>
+                    <button class="quick-btn" onclick="app.navigateTo('challenges')">
+                        <span class="quick-icon">⚡</span>
+                        <span>Challenges</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- DRILLS PAGE -->
+            <section id="page-drills" class="page">
+                <div class="page-header">
+                    <h2>Drill Library</h2>
+                    <p>Master every aspect of setting</p>
+                </div>
+
+                <div class="category-tabs" id="category-tabs">
+                    <button class="cat-tab active" data-cat="all">All</button>
+                    <button class="cat-tab" data-cat="accuracy">🎯 Accuracy</button>
+                    <button class="cat-tab" data-cat="hands">🤲 Hand Form</button>
+                    <button class="cat-tab" data-cat="footwork">👟 Footwork</button>
+                    <button class="cat-tab" data-cat="quick">⚡ Quick Sets</button>
+                    <button class="cat-tab" data-cat="game">🏐 Game IQ</button>
+                </div>
+
+                <div class="difficulty-filter">
+                    <button class="diff-btn active" data-diff="all">All Levels</button>
+                    <button class="diff-btn" data-diff="beginner">Beginner</button>
+                    <button class="diff-btn" data-diff="intermediate">Intermediate</button>
+                    <button class="diff-btn" data-diff="advanced">Advanced</button>
+                    <button class="diff-btn" data-diff="elite">Elite</button>
+                </div>
+
+                <div class="drill-list" id="drill-list">
+                    <!-- Populated by JS -->
+                </div>
+            </section>
+
+            <!-- DRILL DETAIL PAGE -->
+            <section id="page-drill-detail" class="page">
+                <button class="back-btn" onclick="app.navigateTo('drills')">← Back to Drills</button>
+                <div id="drill-detail-content">
+                    <!-- Populated by JS -->
+                </div>
+            </section>
+
+            <!-- EXERCISE ANIMATION PAGE -->
+            <section id="page-exercise" class="page">
+                <button class="back-btn" id="exercise-back-btn">← Back</button>
+                <div class="exercise-container" id="exercise-container">
+                    <div class="exercise-animation-area" id="exercise-animation-area">
+                        <!-- SVG animations rendered here -->
+                    </div>
+                    <div class="exercise-info">
+                        <h2 id="exercise-name"></h2>
+                        <div class="exercise-timer-display">
+                            <div class="timer-circle">
+                                <svg viewBox="0 0 100 100">
+                                    <circle cx="50" cy="50" r="45" class="timer-bg"/>
+                                    <circle cx="50" cy="50" r="45" class="timer-fill" id="timer-fill"/>
+                                </svg>
+                                <span class="timer-text" id="timer-text">0:00</span>
+                            </div>
+                        </div>
+                        <div class="exercise-reps" id="exercise-reps"></div>
+                        <div class="exercise-instructions" id="exercise-instructions"></div>
+                        <div class="exercise-tips" id="exercise-tips"></div>
+                        <div class="exercise-controls">
+                            <button class="ctrl-btn" id="exercise-start-btn" onclick="app.startExercise()">
+                                ▶ START
+                            </button>
+                            <button class="ctrl-btn secondary" id="exercise-skip-btn" onclick="app.skipExercise()">
+                                SKIP ⏭
+                            </button>
+                        </div>
+                        <div class="rep-counter-controls hidden" id="rep-counter-controls">
+                            <button class="rep-btn" onclick="app.decrementRep()">−</button>
+                            <span class="rep-current" id="rep-current">0</span>
+                            <button class="rep-btn" onclick="app.incrementRep()">+</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TRAINING PLAN PAGE -->
+            <section id="page-training" class="page">
+                <div class="page-header">
+                    <h2>Training Plans</h2>
+                    <p>Structured programs to level up your setting</p>
+                </div>
+                <div class="plan-selector">
+                    <button class="plan-tab active" data-plan="daily">Daily Routine</button>
+                    <button class="plan-tab" data-plan="weekly">Weekly Program</button>
+                    <button class="plan-tab" data-plan="intensive">Intensive Camp</button>
+                </div>
+                <div id="training-plan-content">
+                    <!-- Populated by JS -->
+                </div>
+            </section>
+
+            <!-- CHALLENGES PAGE -->
+            <section id="page-challenges" class="page">
+                <div class="page-header">
+                    <h2>Challenges</h2>
+                    <p>Push your limits like Kageyama</p>
+                </div>
+                <div class="challenge-tier-header">
+                    <span class="tier-label" id="challenge-tier-label">Current Tier: Bronze</span>
+                </div>
+                <div class="challenges-list" id="challenges-list">
+                    <!-- Populated by JS -->
+                </div>
+                <div class="section-header" style="margin-top:24px">
+                    <h3>Achievements</h3>
+                </div>
+                <div class="achievements-grid" id="achievements-grid">
+                    <!-- Populated by JS -->
+                </div>
+            </section>
+
+            <!-- STATS PAGE -->
+            <section id="page-stats" class="page">
+                <div class="page-header">
+                    <h2>Progress Dashboard</h2>
+                    <p>Track your evolution</p>
+                </div>
+                <div class="stats-overview">
+                    <div class="stat-big-card">
+                        <div class="stat-big-icon">👑</div>
+                        <div class="stat-big-value" id="stats-rank">Beginner</div>
+                        <div class="stat-big-label">Current Rank</div>
+                    </div>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-item-value" id="stats-level">1</div>
+                            <div class="stat-item-label">Level</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-item-value" id="stats-xp">0</div>
+                            <div class="stat-item-label">Total XP</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-item-value" id="stats-drills">0</div>
+                            <div class="stat-item-label">Drills</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-item-value" id="stats-streak">0</div>
+                            <div class="stat-item-label">Best Streak</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-item-value" id="stats-hours">0</div>
+                            <div class="stat-item-label">Hours</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-item-value" id="stats-challenges">0</div>
+                            <div class="stat-item-label">Challenges</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-header">
+                    <h3>Skill Radar</h3>
+                </div>
+                <div class="radar-chart-container">
+                    <canvas id="radar-chart" width="300" height="300"></canvas>
+                </div>
+
+                <div class="section-header">
+                    <h3>Weekly Activity</h3>
+                </div>
+                <div class="weekly-chart" id="weekly-chart">
+                    <!-- Populated by JS -->
+                </div>
+
+                <div class="section-header">
+                    <h3>Category Mastery</h3>
+                </div>
+                <div class="mastery-bars" id="mastery-bars">
+                    <!-- Populated by JS -->
+                </div>
+            </section>
+
+            <!-- SETTINGS PAGE -->
+            <section id="page-settings" class="page">
+                <div class="page-header">
+                    <h2>Settings</h2>
+                    <p>Customize your training</p>
+                </div>
+                <div class="settings-list">
+                    <div class="settings-group">
+                        <h3 class="settings-group-title">Profile</h3>
+                        <div class="setting-item">
+                            <label>Player Name</label>
+                            <input type="text" id="setting-name" class="setting-input" placeholder="Enter your name" maxlength="20">
+                        </div>
+                        <div class="setting-item">
+                            <label>Daily Goal (drills)</label>
+                            <select id="setting-daily-goal" class="setting-select">
+                                <option value="3">3 drills/day (Light)</option>
+                                <option value="5" selected>5 drills/day (Normal)</option>
+                                <option value="8">8 drills/day (Intense)</option>
+                                <option value="12">12 drills/day (Beast Mode)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="settings-group">
+                        <h3 class="settings-group-title">Training</h3>
+                        <div class="setting-item">
+                            <label>Difficulty Level</label>
+                            <select id="setting-difficulty" class="setting-select">
+                                <option value="beginner">Beginner</option>
+                                <option value="intermediate" selected>Intermediate</option>
+                                <option value="advanced">Advanced</option>
+                                <option value="elite">Elite</option>
+                            </select>
+                        </div>
+                        <div class="setting-item">
+                            <label>Rest Timer (seconds)</label>
+                            <select id="setting-rest" class="setting-select">
+                                <option value="15">15s</option>
+                                <option value="30" selected>30s</option>
+                                <option value="45">45s</option>
+                                <option value="60">60s</option>
+                            </select>
+                        </div>
+                        <div class="setting-item toggle-item">
+                            <label>Sound Effects</label>
+                            <div class="toggle" id="toggle-sound" onclick="app.toggleSetting('sound')">
+                                <div class="toggle-thumb"></div>
+                            </div>
+                        </div>
+                        <div class="setting-item toggle-item">
+                            <label>Vibration Feedback</label>
+                            <div class="toggle active" id="toggle-vibration" onclick="app.toggleSetting('vibration')">
+                                <div class="toggle-thumb"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="settings-group">
+                        <h3 class="settings-group-title">Notifications</h3>
+                        <div class="setting-item toggle-item">
+                            <label>Daily Reminder</label>
+                            <div class="toggle active" id="toggle-reminder" onclick="app.toggleSetting('reminder')">
+                                <div class="toggle-thumb"></div>
+                            </div>
+                        </div>
+                        <div class="setting-item">
+                            <label>Reminder Time</label>
+                            <input type="time" id="setting-reminder-time" class="setting-input" value="07:00">
+                        </div>
+                    </div>
+                    <div class="settings-group">
+                        <h3 class="settings-group-title">Data</h3>
+                        <div class="setting-item">
+                            <button class="setting-btn danger" onclick="app.resetProgress()">Reset All Progress</button>
+                        </div>
+                        <div class="setting-item">
+                            <button class="setting-btn" onclick="app.exportData()">Export Data</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="app-info">
+                    <p>King of the Court v1.0</p>
+                    <p>Inspired by Kageyama Tobio</p>
+                    <p class="app-quote">"Talent is something you bloom, instinct is something you polish."</p>
+                </div>
+            </section>
+        </main>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <button class="nav-btn active" data-page="home" onclick="app.navigateTo('home')">
+                <span class="nav-icon">🏠</span>
+                <span class="nav-label">Home</span>
+            </button>
+            <button class="nav-btn" data-page="drills" onclick="app.navigateTo('drills')">
+                <span class="nav-icon">🎯</span>
+                <span class="nav-label">Drills</span>
+            </button>
+            <button class="nav-btn" data-page="training" onclick="app.navigateTo('training')">
+                <span class="nav-icon">📋</span>
+                <span class="nav-label">Plans</span>
+            </button>
+            <button class="nav-btn" data-page="challenges" onclick="app.navigateTo('challenges')">
+                <span class="nav-icon">⚡</span>
+                <span class="nav-label">Challenges</span>
+            </button>
+            <button class="nav-btn" data-page="stats" onclick="app.navigateTo('stats')">
+                <span class="nav-icon">📊</span>
+                <span class="nav-label">Stats</span>
+            </button>
+            <button class="nav-btn" data-page="settings" onclick="app.navigateTo('settings')">
+                <span class="nav-icon">⚙️</span>
+                <span class="nav-label">Settings</span>
+            </button>
+        </nav>
+
+        <!-- Toast Notification -->
+        <div class="toast" id="toast">
+            <span class="toast-icon" id="toast-icon"></span>
+            <span class="toast-text" id="toast-text"></span>
+        </div>
+
+        <!-- Level Up Modal -->
+        <div class="modal-overlay hidden" id="levelup-modal">
+            <div class="modal levelup-modal">
+                <div class="levelup-animation">
+                    <div class="levelup-burst"></div>
+                    <div class="levelup-icon">⬆️</div>
+                </div>
+                <h2>LEVEL UP!</h2>
+                <p class="levelup-level" id="levelup-level">Level 2</p>
+                <p class="levelup-rank" id="levelup-rank"></p>
+                <p class="levelup-quote" id="levelup-quote"></p>
+                <button class="modal-btn" onclick="app.closeLevelUpModal()">Continue Training</button>
+            </div>
+        </div>
+
+        <!-- Achievement Modal -->
+        <div class="modal-overlay hidden" id="achievement-modal">
+            <div class="modal achievement-modal">
+                <div class="achievement-icon-big" id="achievement-icon-big">🏆</div>
+                <h2>Achievement Unlocked!</h2>
+                <p class="achievement-name" id="achievement-modal-name"></p>
+                <p class="achievement-desc" id="achievement-modal-desc"></p>
+                <button class="modal-btn" onclick="app.closeAchievementModal()">Nice!</button>
+            </div>
+        </div>
+
+        <!-- Completion Modal -->
+        <div class="modal-overlay hidden" id="complete-modal">
+            <div class="modal complete-modal">
+                <div class="complete-icon">🎉</div>
+                <h2 id="complete-title">Drill Complete!</h2>
+                <div class="complete-stats">
+                    <div class="complete-stat">
+                        <span class="complete-value" id="complete-xp">+0 XP</span>
+                    </div>
+                    <div class="complete-stat">
+                        <span class="complete-value" id="complete-time">0:00</span>
+                        <span class="complete-label">Time</span>
+                    </div>
+                </div>
+                <div class="complete-rating">
+                    <p>How was this drill?</p>
+                    <div class="rating-stars">
+                        <button class="star-btn" onclick="app.rateDrill(1)">⭐</button>
+                        <button class="star-btn" onclick="app.rateDrill(2)">⭐</button>
+                        <button class="star-btn" onclick="app.rateDrill(3)">⭐</button>
+                        <button class="star-btn" onclick="app.rateDrill(4)">⭐</button>
+                        <button class="star-btn" onclick="app.rateDrill(5)">⭐</button>
+                    </div>
+                </div>
+                <button class="modal-btn" onclick="app.closeCompleteModal()">Continue</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,273 @@
+/* ===== ANIMATIONS ===== */
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes loadingBar {
+    0% { width: 0%; }
+    100% { width: 100%; }
+}
+
+@keyframes scaleIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes bounce {
+    from { transform: translateY(0); }
+    to { transform: translateY(-8px); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.2); opacity: 1; }
+}
+
+@keyframes glow {
+    0%, 100% { box-shadow: 0 0 5px rgba(74, 108, 247, 0.3); }
+    50% { box-shadow: 0 0 20px rgba(74, 108, 247, 0.6); }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(100%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* SVG Exercise Animation Styles */
+.anim-player {
+    transition: all 0.3s ease;
+}
+
+.anim-volleyball {
+    animation: ballBounce 1.5s ease-in-out infinite;
+}
+
+@keyframes ballBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-30px); }
+}
+
+.anim-hands {
+    animation: handsSetting 2s ease-in-out infinite;
+}
+
+@keyframes handsSetting {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-15px) rotate(-5deg); }
+    50% { transform: translateY(-25px) rotate(0deg); }
+    75% { transform: translateY(-15px) rotate(5deg); }
+}
+
+.anim-feet {
+    animation: footShuffle 1.2s ease-in-out infinite;
+}
+
+@keyframes footShuffle {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+}
+
+.anim-arrows {
+    animation: arrowPulse 1s ease-in-out infinite;
+}
+
+@keyframes arrowPulse {
+    0%, 100% { opacity: 0.3; transform: scale(0.9); }
+    50% { opacity: 1; transform: scale(1.1); }
+}
+
+/* Court animation */
+.court-line {
+    stroke: rgba(255, 255, 255, 0.3);
+    stroke-width: 1;
+    fill: none;
+}
+
+.court-fill {
+    fill: rgba(74, 108, 247, 0.05);
+}
+
+/* Player position indicators */
+.position-dot {
+    fill: var(--accent-primary);
+    animation: dotPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes dotPulse {
+    0%, 100% { r: 6; opacity: 0.7; }
+    50% { r: 8; opacity: 1; }
+}
+
+.target-ring {
+    fill: none;
+    stroke: var(--accent-green);
+    stroke-width: 2;
+    stroke-dasharray: 5 3;
+    animation: targetSpin 3s linear infinite;
+}
+
+@keyframes targetSpin {
+    from { stroke-dashoffset: 0; }
+    to { stroke-dashoffset: -30; }
+}
+
+/* Ball trajectory path */
+.trajectory-path {
+    fill: none;
+    stroke: var(--accent-cyan);
+    stroke-width: 2;
+    stroke-dasharray: 200;
+    stroke-dashoffset: 200;
+    animation: drawPath 2s ease-in-out infinite;
+}
+
+@keyframes drawPath {
+    0% { stroke-dashoffset: 200; }
+    50% { stroke-dashoffset: 0; }
+    100% { stroke-dashoffset: -200; }
+}
+
+/* Player body animation */
+.player-body-upper {
+    animation: setMotion 2s ease-in-out infinite;
+    transform-origin: center bottom;
+}
+
+@keyframes setMotion {
+    0%, 100% { transform: rotate(0deg); }
+    30% { transform: rotate(-10deg); }
+    60% { transform: rotate(5deg); }
+}
+
+.player-arms {
+    animation: armExtend 2s ease-in-out infinite;
+    transform-origin: center center;
+}
+
+@keyframes armExtend {
+    0%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-20px); }
+    60% { transform: translateY(-15px); }
+}
+
+/* Footwork animation */
+.foot-step {
+    animation: stepMark 1s ease-in-out infinite;
+}
+
+.foot-step:nth-child(odd) {
+    animation-delay: 0.5s;
+}
+
+@keyframes stepMark {
+    0% { opacity: 0; transform: scale(0.5); }
+    50% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(0.5); }
+}
+
+/* Net animation */
+.net-line {
+    stroke: rgba(255, 255, 255, 0.4);
+    stroke-width: 1.5;
+}
+
+.net-pattern {
+    stroke: rgba(255, 255, 255, 0.15);
+    stroke-width: 0.5;
+}
+
+/* Accuracy target */
+.accuracy-ring {
+    fill: none;
+    stroke-width: 2;
+    opacity: 0.6;
+}
+
+.accuracy-ring:nth-child(1) { stroke: var(--accent-red); }
+.accuracy-ring:nth-child(2) { stroke: var(--accent-orange); }
+.accuracy-ring:nth-child(3) { stroke: var(--accent-gold); }
+.accuracy-ring:nth-child(4) { stroke: var(--accent-green); }
+
+/* Quick set flash */
+.quick-flash {
+    animation: quickFlash 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes quickFlash {
+    from { opacity: 0.5; }
+    to { opacity: 1; }
+}
+
+/* Completion celebration */
+.celebration-particle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    animation: particleExplode 1s ease-out forwards;
+}
+
+@keyframes particleExplode {
+    from {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: translate(var(--tx), var(--ty)) scale(0);
+        opacity: 0;
+    }
+}
+
+/* Ripple effect */
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(74, 108, 247, 0.3);
+    animation: rippleExpand 0.6s ease-out forwards;
+    pointer-events: none;
+}
+
+@keyframes rippleExpand {
+    from { width: 0; height: 0; opacity: 1; }
+    to { width: 200px; height: 200px; opacity: 0; margin-top: -100px; margin-left: -100px; }
+}
+
+/* XP counter animation */
+.xp-pop {
+    position: fixed;
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--accent-gold);
+    pointer-events: none;
+    z-index: 3000;
+    animation: xpFloat 1.5s ease-out forwards;
+}
+
+@keyframes xpFloat {
+    0% { transform: translateY(0) scale(1); opacity: 1; }
+    100% { transform: translateY(-60px) scale(0.5); opacity: 0; }
+}
