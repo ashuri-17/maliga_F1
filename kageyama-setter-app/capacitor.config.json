@@ -1,0 +1,18 @@
+{
+    "appId": "com.kingofthecourt.settertraining",
+    "appName": "King of the Court",
+    "webDir": "www",
+    "server": {
+        "androidScheme": "https"
+    },
+    "android": {
+        "backgroundColor": "#0a0a1a",
+        "allowMixedContent": true
+    },
+    "plugins": {
+        "SplashScreen": {
+            "launchShowDuration": 0,
+            "backgroundColor": "#0a0a1a"
+        }
+    }
+}
