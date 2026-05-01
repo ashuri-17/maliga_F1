@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.cursedmind.app" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Cursed Mind</name>
+    <description>
+        Cursed Mind - A word guessing game with immersive gameplay.
+    </description>
+    <author email="dev@cursedmind.com" href="https://cursedmind.com">
+        Cursed Mind Team
+    </author>
+
+    <!-- Main content page -->
+    <content src="home.html" />
+
+    <!-- Allow navigation within the app -->
+    <allow-navigation href="*" />
+
+    <!-- Allow intents (not needed for local app but keeps Cordova happy) -->
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+
+    <!-- Android preferences -->
+    <preference name="Orientation" value="portrait" />
+    <preference name="StatusBarOverlaysWebView" value="false" />
+    <preference name="StatusBarBackgroundColor" value="#000000" />
+    <preference name="StatusBarStyle" value="lightcontent" />
+    <preference name="Fullscreen" value="false" />
+    <preference name="WebViewBounce" value="false" />
+
+    <!-- Enable localStorage and WebSQL -->
+    <preference name="AndroidExtraFilesystems" value="files,files-external,documents,sdcard,cache,cache-external" />
+    <preference name="AndroidPersistentFileLocation" value="Compatibility" />
+
+    <!-- Permissions for Android -->
+    <platform name="android">
+        <allow-intent href="market:*" />
+        <preference name="android-minSdkVersion" value="22" />
+        <preference name="android-targetSdkVersion" value="36" />
+        <preference name="AndroidInsecureFileModeEnabled" value="true" />
+        <preference name="MixedContentMode" value="2" />
+    </platform>
+
+    <!-- Permissions for iOS (if needed later) -->
+    <platform name="ios">
+        <allow-intent href="itms:*" />
+        <allow-intent href="itms-apps:*" />
+    </platform>
+</widget>

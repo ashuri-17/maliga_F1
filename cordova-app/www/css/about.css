@@ -1,0 +1,38 @@
+@import url('base.css');
+
+.bg {
+    height: 100vh;
+    width: 100vw;
+}
+
+.home-icon {
+    position: absolute;
+    top: 8vh;
+    left: 3vw;
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+.hlogo {
+    height: 45px;
+}
+
+h1 {
+    color: rgb(255, 255, 255);
+    position: absolute;
+    font-weight: normal;
+    top: 15vh;
+    right: 44vw;
+    font-size: 70px;
+}
+
+p {
+    color: rgb(255, 255, 255);
+    position: absolute;
+    font-weight: normal;
+    top: 30vh;
+    right: 23vw;
+    font-size: 49px;
+    text-align: center;
+}

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/how.css">
+    <link rel="icon" href="img/favlogo.png">
+    <title>Curse Mind Manual</title>
+</head>
+<body>
+    <audio id="bgmusic" loop style="display:none">
+        <source src="audio/bgmusic.mp3" type="audio/mp3">
+      </audio>
+    <div class="manual-container">
+        <h1>Curse MindManual</h1>
+        
+        <h2>Game Overview</h2>
+        <p>Welcome to <strong>Curse Mind</strong>! This is a word-guessing game with a spooky Halloween theme. You'll need to guess letters to reveal hidden words before you run out of lives. The game features different difficulty levels, hints, and a scoring system.</p>
+        
+        <h2>How to Play</h2>
+        <h3>1. Select a Difficulty Level</h3>
+        <p>The game has four difficulty levels:</p>
+        <div class="difficulty-list">
+            <div class="difficulty-item">
+                <h3>Easy</h3>
+                <p>8 lives</p>
+                <p>Simple words</p>
+            </div>
+            <div class="difficulty-item">
+                <h3>Medium</h3>
+                <p>6 lives</p>
+                <p>Moderate words</p>
+            </div>
+            <div class="difficulty-item">
+                <h3>Hard</h3>
+                <p>3 lives</p>
+                <p>Challenging words</p>
+            </div>
+            <div class="difficulty-item">
+                <h3>Extreme</h3>
+                <p>1 life</p>
+                <p>Very difficult words</p>
+            </div>
+        </div>
+        
+        <h3>2. Guess Letters</h3>
+        <ul>
+            <li>Type a letter into the input box and press <strong>Enter</strong> or click <strong>Submit</strong>.</li>
+            <li>If the letter is in the word, it will appear in the correct position(s).</li>
+            <li>If the letter is wrong, you lose a life, and the incorrect letter is displayed.</li>
+        </ul>
+        
+        <h3>3. Use the Hint</h3>
+        <p>Each word comes with a <strong>hint</strong> to help you guess.</p>
+        
+        <h3>4. Complete Words to Progress</h3>
+        <ul>
+            <li>Each level has multiple words to guess.</li>
+            <li>Successfully guess all words to win!</li>
+        </ul>
+        
+        <h3>5. Scoring System</h3>
+        <ul>
+            <li><strong>Correct Guess:</strong> +10 points per correct letter.</li>
+            <li><strong>Word Completion Bonus:</strong>
+                <ul>
+                    <li><strong>Easy:</strong> +100 points</li>
+                    <li><strong>Medium:</strong> +200 points</li>
+                    <li><strong>Hard:</strong> +300 points</li>
+                    <li><strong>Extreme:</strong> +500 points</li>
+                </ul>
+            </li>
+            <li><strong>Lives Bonus:</strong> Extra points for remaining lives.</li>
+            <li><strong>Wrong Guess Penalty:</strong> -5 points.</li>
+        </ul>
+        
+        <h3>6. Game Over</h3>
+        <ul>
+            <li>If you run out of lives, the game ends.</li>
+            <li>You can restart or return to the main menu.</li>
+        </ul>
+        
+        <h2>Controls</h2>
+        <div class="controls">
+            <ul>
+                <li><strong>Keyboard:</strong> Type letters and press <strong>Enter</strong> to submit.</li>
+                <li><strong>Mouse:</strong> Click the <strong>Submit</strong> button after typing a guess.</li>
+                <li><strong>Navigation:</strong>
+                    <ul>
+                        <li><strong>Home Button:</strong> Returns to the main menu.</li>
+                        <li><strong>Settings Button:</strong> Adjust game options.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        
+        <h2>Tips & Strategies</h2>
+        <div class="tips">
+            <ul>
+                <li><strong>Start with vowels (A, E, I, O, U).</strong></li>
+                <li><strong>Use the hint wisely.</strong></li>
+                <li><strong>Avoid repeating wrong letters.</strong></li>
+                <li><strong>Higher difficulties give more points but are riskier!</strong></li>
+            </ul>
+        </div>
+        
+        <h2>Game Features</h2>
+        <div class="features">
+            <div class="feature-item">Multiple Difficulty Levels</div>
+            <div class="feature-item">Halloween-Themed Words & Hints</div>
+            <div class="feature-item">Dynamic Scoring System</div>
+            <div class="feature-item">Progress Tracker</div>
+            <div class="feature-item">Responsive Design</div>
+        </div>
+        
+        <div class="footer">
+            <p><strong>Good luck, and have a spooky time!</strong> <span class="emoji">🎃👻💀</span></p>
+            <p onclick="b()">BACK</p>
+        </div>
+    </div>
+    <script src="js/audio-handler.js"></script>
+    <script src="js/how.js"></script>
+</body>
+</html>

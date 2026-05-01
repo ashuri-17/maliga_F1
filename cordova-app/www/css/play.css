@@ -1,0 +1,125 @@
+@import url('base.css');
+
+.set {
+    position: absolute;
+    color: rgb(255, 255, 255);
+    font-weight: normal;
+    font-size: 57px;
+    z-index: 10;
+    text-align: center;
+    top: 50px;
+    left: 43%;
+    letter-spacing: 2px;
+    animation: float 4s infinite ease-in-out;
+}
+
+.dif {
+    position: absolute;
+    color: rgb(238, 6, 6);
+    font-weight: normal;
+    font-size: 50px;
+    z-index: 10;
+    text-align: center;
+    top: 350px;
+    left: 14%;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+
+.dif:hover {
+    color: #ff1a1a;
+}
+
+.active {
+    color: rgb(250, 1, 1) !important;
+}
+
+.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 55%;
+    width: 105%;
+    height: 2px;
+    background-color: rgb(253, 0, 0);
+    transform: translateY(-50%);
+}
+
+.e, .m, .h ,.x {
+    position: absolute;
+    color: rgb(243, 243, 243);
+    font-weight: normal;
+    font-size: 38px;
+    z-index: 10;
+    text-align: center;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.e { top: 350px; left: 40%; }
+.m { top: 350px; left: 50%; }
+.h { top: 350px; left: 63%; }
+.x { top: 350px; left: 75%; }
+
+.e:hover, .m:hover, .h:hover , .x:hover {
+    color: red;
+    transform: translateY(-5px);
+}
+
+.sfx {
+    position: absolute;
+    color: rgb(255, 255, 255);
+    font-weight: normal;
+    font-size: 45px;
+    z-index: 10;
+    text-align: center;
+    top: 400px;
+    left: 14%;
+    letter-spacing: 2px;
+}
+
+.on, .of {
+    position: absolute;
+    color: rgb(255, 255, 255);
+    font-weight: normal;
+    font-size: 38px;
+    z-index: 10;
+    text-align: center;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.on { top: 400px; left: 60%; }
+.of { top: 400px; left: 75%; }
+
+.on:hover, .of:hover {
+    color: red;
+    transform: translateY(-5px);
+}
+
+.play {
+    position: absolute;
+    color: rgb(255, 255, 255);
+    font-weight: normal;
+    font-size: 38px;
+    z-index: 10;
+    text-align: center;
+    top: 650px;
+    left: 45%;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.play:hover {
+    color: red;
+    text-shadow: 0 0 10px #ff1a1a;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}

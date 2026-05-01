@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Music</title>
+</head>
+<body style="margin:0;">
+  <audio id="bgmusic" loop>
+    <source src="/audio/bgmusic.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script src="/js/audio-handler.js"></script>
+  <script>
+    const music = document.getElementById("bgmusic");
+    music.volume = 0.5;
+
+    function handleFirstInteraction() {
+      if (localStorage.getItem("sfx") === "on") {
+        music.play().catch(e => console.log("Playback prevented:", e));
+      }
+
+      document.removeEventListener('click', handleFirstInteraction);
+      document.removeEventListener('keydown', handleFirstInteraction);
+      document.removeEventListener('touchstart', handleFirstInteraction);
+    }
+
+    document.addEventListener('click', handleFirstInteraction);
+    document.addEventListener('keydown', handleFirstInteraction);
+    document.addEventListener('touchstart', handleFirstInteraction);
+
+    window.addEventListener("message", function(e) {
+      try {
+        if (e.data.action === "play") {
+          music.play().catch(error => console.log('Audio play failed:', error));
+          localStorage.setItem("sfx", "on");
+        } else if (e.data.action === "pause") {
+          music.pause();
+          localStorage.setItem("sfx", "off");
+        }
+      } catch (error) {
+        console.error("Error handling message:", error);
+      }
+    });
+
+    if (localStorage.getItem("sfx") === "on") {
+    } else {
+      music.pause();
+    }
+  </script>
+</body>
+</html>

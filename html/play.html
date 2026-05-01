@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" href="/img/favlogo.png">
+  <title>Cursed Mind</title>
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/play.css">
+</head>
+<body>
+  <!-- Persistent Audio Element (must be on ALL pages) -->
+  <audio id="bgmusic" loop style="display:none">
+    <source src="/audio/bgmusic.mp3" type="audio/mp3">
+  </audio>
+
+  <img src="/img/credits.png" class="bg" />
+  <h1 class="set">MODE</h1>
+  <p class="dif">Difficulty</p>
+  <p id="playBtn" class="play" onclick="startGame()">PLAY</p>
+  <p class="e" onclick="selectDifficulty(this)">Easy</p>
+  <p class="m" onclick="selectDifficulty(this)">Medium</p>
+  <p class="h" onclick="selectDifficulty(this)">Hard</p>
+  <p class="x" onclick="selectDifficulty(this)">Extreme</p>
+  <script src="/js/audio-handler.js"></script>
+  <script src="/js/play.js"></script>
+  </body>
+</html>

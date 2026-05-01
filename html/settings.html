@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/img/favlogo.png">
+  <title>Cursed Mind</title>
+  <link rel="stylesheet" href="/css/base.css" />
+  <link rel="stylesheet" href="/css/settings.css" />
+</head>
+<body>
+  <!-- Persistent Audio Element (must be on ALL pages) -->
+  <audio id="bgmusic" loop style="display:none">
+    <source src="/audio/bgmusic.mp3" type="audio/mp3">
+  </audio>
+
+  <img src="/img/settings.jpg" class="bg" />
+  <h1 class="set">SETTINGS</h1>
+  <p class="sfx">Background SFX</p>
+  <p id="menu" class="menu">Menu</p>
+  <p class="how" onclick="how()">How to Play?</p>
+  <p class="on" id="on" onclick="toggleSFX('on')">On</p>
+  <p class="of" id="off" onclick="toggleSFX('off')">Off</p>
+
+  <script src="/js/audio-handler.js"></script>
+  <script src="/js/settings.js"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+name: Build Android APK
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:  # Allows manual trigger
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+
+    - name: Setup Android SDK
+      uses: android-actions/setup-android@v3
+
+    - name: Install Cordova
+      run: npm install -g cordova@13
+
+    - name: Add Android platform (if not present)
+      working-directory: ./cordova-app
+      run: |
+        if [ ! -d "platforms/android" ]; then
+          cordova platform add android
+        fi
+
+    - name: Build Android APK (Debug)
+      working-directory: ./cordova-app
+      run: cordova build android --debug
+
+    - name: Upload APK as artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: cursed-mind-debug-apk
+        path: cordova-app/platforms/android/app/build/outputs/apk/debug/*.apk
+        retention-days: 30
+
+    - name: Build Android APK (Release)
+      working-directory: ./cordova-app
+      run: cordova build android --release
+      continue-on-error: true  # Release build might fail without signing config
+
+    - name: Upload Release APK as artifact
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: cursed-mind-release-apk
+        path: cordova-app/platforms/android/app/build/outputs/apk/release/*.apk
+        retention-days: 30
+        if-no-files-found: ignore

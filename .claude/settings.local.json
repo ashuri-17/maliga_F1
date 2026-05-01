@@ -1,0 +1,39 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cordova --version)",
+      "Bash(java -version)",
+      "Bash(npm --version)",
+      "Bash(npm install *)",
+      "Bash(gradle --version)",
+      "Bash(choco install *)",
+      "Read(//c/ProgramFiles/**)",
+      "Read(//c/Program Files/Eclipse Adoptium//**)",
+      "Bash(find /c -name \"java.exe\")",
+      "Bash(export JAVA_HOME=\"/c/ProgramFiles/EclipseAdoptium/jdk-11.0.28.6-hotspot\")",
+      "Bash(export PATH=\"$JAVA_HOME/bin:$PATH\")",
+      "Read(//c/ProgramData/**)",
+      "Bash(dir \"/c/ProgramFiles/EclipseAdoptium/\")",
+      "Bash(export JAVA_HOME=\"/c/Program Files/Eclipse Adoptium/jdk-11.0.28.6-hotspot\")",
+      "Bash('/c/Program Files/Eclipse Adoptium/jdk-11.0.28.6-hotspot/bin/java' -version)",
+      "Bash(cordova create *)",
+      "Bash(cordova platform *)",
+      "Bash(winget --version)",
+      "Bash(winget search *)",
+      "Bash(winget install *)",
+      "Read(//c/Program Files/ojdkbuild/**)",
+      "Read(//c/Program Files \\(x86\\)/**)",
+      "Read(//c/Program Files/**)",
+      "Bash(export JAVA_HOME=\"/c/Program Files/ojdkbuild/java-17-openjdk-17.0.3.0.6-1\")",
+      "Bash(cd /tmp)",
+      "Bash(curl -L -o gradle.zip \"https://services.gradle.org/distributions/gradle-8.5-bin.zip\")",
+      "Read(//tmp/gradle-8.5/**)",
+      "Read(//tmp/gradle-8.5/bin/**)",
+      "Bash(rm -rf gradle-8.5)",
+      "Bash(unzip -q gradle.zip)",
+      "Bash(mv gradle-8.5 \"/c/Gradle\")",
+      "Read(//c/Gradle/**)",
+      "Bash(git add *)"
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+/* Base styles shared across all pages */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'papyrus';
+    src: url(papyrus.ttf);
+}
+
+body {
+    overflow: hidden;
+    background-color: #111;
+    font-family: 'papyrus', sans-serif;
+}
+
+.bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    object-fit: cover;
+}

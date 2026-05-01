@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cursed Mind</title>
+  <link rel="icon" href="img/favlogo.png">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/start.css">
+</head>
+<body>
+  <audio id="bgmusic" loop style="display:none">
+    <source src="audio/bgmusic.mp3" type="audio/mp3">
+  </audio>
+
+  <img class="bg" src="img/start.png">
+  
+  <!-- Custom Alert Elements -->
+  <div class="overlay" id="alertOverlay"></div>
+  <div class="custom-alert" id="customAlert">
+    <div id="alertMessage"></div>
+    <button onclick="hideAlert()">OK</button>
+  </div>
+
+  <div class="game-container">
+    <div class="icons">
+      <span onclick="set()">⚙️</span>
+      <div id="score">Score: 0</div>
+    </div>
+    <div class="letters" id="wordDisplay"></div>
+    <div class="level">Easy Level</div>
+    <div class="hint" id="hintText"><strong>Hint:</strong></div>
+    <div class="lives">
+      <strong>Remaining Lives:</strong> <span id="lives">8</span>
+    </div>
+    <div class="progress">
+      <strong>Progress:</strong> <span id="progress">Word 1 of 5</span>
+    </div>
+    <div class="wrong">
+      <strong>Wrong Letters:</strong> <span id="wrongLetters"></span>
+    </div>
+    <input type="text" id="guessInput" maxlength="1" placeholder="Enter a letter" />
+    <button class="submit-btn" onclick="submitGuess()">SUBMIT</button>
+    <div class="home-icon"> 
+      <img class="hlogo" src="img/homelogo.png" onclick="home()">
+    </div>
+  </div>
+
+  <script src="js/audio-handler.js"></script>
+  <script src="js/start.js"></script>
+</body>
+</html>
